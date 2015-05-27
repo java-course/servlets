@@ -3,10 +3,13 @@ package ru.javacourse.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+@WebServlet(urlPatterns = "/HelloWorld")
 public class HelloWorld extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -26,7 +29,7 @@ public class HelloWorld extends HttpServlet {
             out.println("<h1>Servlet HelloWorld for Java course</h1>");
 
             // Здесь мы вставляем ссылку на картинку, которую получаем с помощью сервлета HelloImage
-            out.println("<img src='HelloImage'/>");
+            out.println("<img src='/HelloImage'/>");
 
             out.println("</body>");
             out.println("</html>");

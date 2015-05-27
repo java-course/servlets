@@ -54,6 +54,8 @@ public class BlogAdminServlet extends HttpServlet {
             String target = "/jsp/newPost.jsp";
             if (postId != null) {
                 Post post = postDao.getById(Integer.parseInt(postId));
+                List<Category> categories = categoryDao.getAll();
+                request.setAttribute("categories", categories);
                 request.setAttribute("post", post);
             }
             if (categoryId != null) {

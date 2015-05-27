@@ -31,7 +31,7 @@
                 </td>
 
 
-                <td  valign="top">
+                <td  valign="top" style="background-color: lightgoldenrodyellow">
                     <h2>Categories:</h2>
                     <ul>
                     <c:forEach items="${categories}" var="cat">

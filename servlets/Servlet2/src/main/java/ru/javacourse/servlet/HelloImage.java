@@ -25,11 +25,13 @@ public class HelloImage extends HttpServlet {
         response.setContentType("image/png");
         OutputStream out = response.getOutputStream();
         try {
-            URL imageURL = HelloImage.class.getResource("map.png");
+            URL imageURL = HelloImage.class.getResource("/map.png");
             BufferedImage bi = ImageIO.read(imageURL);
             ImageIO.setUseCache(false);
             ImageIO.write(bi, "png", out);
+
         } finally {
+            out.flush();
             out.close();
         }
     }
