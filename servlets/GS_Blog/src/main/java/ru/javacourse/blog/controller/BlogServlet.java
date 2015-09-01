@@ -1,10 +1,9 @@
-package com.gemini.blog.controller;
+package ru.javacourse.blog.controller;
 
-import com.gemini.blog.dao.AbstractDao;
-import com.gemini.blog.dao.impl.CategoryDao;
-import com.gemini.blog.dao.impl.PostDao;
-import com.gemini.blog.model.Category;
-import com.gemini.blog.model.Post;
+import ru.javacourse.blog.dao.impl.CategoryDao;
+import ru.javacourse.blog.dao.impl.PostDao;
+import ru.javacourse.blog.model.Category;
+import ru.javacourse.blog.model.Post;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +27,9 @@ public class BlogServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         ResourceBundle resourceBundle = ResourceBundle.getBundle("messages", request.getLocale());
+
         response.setHeader("Content-Language", request.getLocale().getLanguage());
 
         String postId = request.getParameter("post");
@@ -58,10 +59,12 @@ public class BlogServlet extends HttpServlet {
                     postDao.getAll() :
                     postDao.getPostsByCategoryId(Integer.parseInt(categoryId));
 
-            request.setAttribute("posts", posts);
             List<Category> categories = categoryDao.getAll();
+
+            request.setAttribute("posts", posts);
             request.setAttribute("categories", categories);
             request.setAttribute("test", resourceBundle.getString("test"));
+
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/index.jsp");
             rd.forward(request, response);
 
@@ -75,13 +78,11 @@ public class BlogServlet extends HttpServlet {
 
         String id = request.getParameter("id");
         String title = request.getParameter("title");
-        System.out.println("title = " + title);
         String summary = request.getParameter("summary");
         String body = request.getParameter("body");
         String category = request.getParameter("category");
 
-        if (title != null && summary != null && body != null && category != null ){
-
+        if (isValidPost(title, summary, body)){
             Category cat =  categoryDao.getById(Integer.parseInt(category));
 
             Post post = new Post(title, summary, body, cat);
@@ -91,10 +92,34 @@ public class BlogServlet extends HttpServlet {
             }else{
                 postDao.create(post);
             }
+            response.sendRedirect("/blog");
+        }else {
+
+            Post post = new Post();
+
+            if (!isNullOrEmpty(title)) post.setTitle(title);
+            if (!isNullOrEmpty(summary)) post.setSummary(summary);
+            if (!isNullOrEmpty(body)) post.setBody(body);
+
+            request.setAttribute("error", "Please fill required fields!");
+            request.setAttribute("post", post);
+            request.setAttribute("categories", categoryDao.getAll());
+            getServletConfig().getServletContext().getRequestDispatcher("/jsp/newPost.jsp").
+                    forward(request, response);
+
         }
 
-        response.sendRedirect("/blog");
-
-
     }
+
+    private boolean isValidPost(String title, String summary, String body){
+        if (isNullOrEmpty(title)) return false;
+        if (isNullOrEmpty(summary)) return false;
+        if (isNullOrEmpty(body)) return false;
+        return true;
+    }
+
+    private boolean isNullOrEmpty(String s) {
+        return s == null || s.trim().isEmpty();
+    }
+
 }

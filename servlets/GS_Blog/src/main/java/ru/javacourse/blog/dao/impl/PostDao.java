@@ -1,9 +1,7 @@
-package com.gemini.blog.dao.impl;
+package ru.javacourse.blog.dao.impl;
 
-import com.gemini.blog.dao.AbstractDao;
-import com.gemini.blog.model.Category;
-import com.gemini.blog.model.Post;
-import com.gemini.blog.util.DatabaseUtil;
+import ru.javacourse.blog.model.Category;
+import ru.javacourse.blog.model.Post;
 
 import java.sql.*;
 import java.util.ArrayList;

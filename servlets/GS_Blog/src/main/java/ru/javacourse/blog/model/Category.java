@@ -1,4 +1,4 @@
-package com.gemini.blog.model;
+package ru.javacourse.blog.model;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.gemini.blog.util;
+package ru.javacourse.blog.util;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

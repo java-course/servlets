@@ -1,10 +1,10 @@
-package com.gemini.blog.controller;
+package ru.javacourse.blog.controller;
 
-import com.gemini.blog.dao.AbstractDao;
-import com.gemini.blog.dao.impl.CategoryDao;
-import com.gemini.blog.dao.impl.PostDao;
-import com.gemini.blog.model.Category;
-import com.gemini.blog.model.Post;
+import ru.javacourse.blog.dao.AbstractDao;
+import ru.javacourse.blog.dao.impl.CategoryDao;
+import ru.javacourse.blog.dao.impl.PostDao;
+import ru.javacourse.blog.model.Category;
+import ru.javacourse.blog.model.Post;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

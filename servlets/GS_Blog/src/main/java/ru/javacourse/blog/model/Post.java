@@ -1,6 +1,4 @@
-package com.gemini.blog.model;
-
-import com.gemini.blog.dao.impl.CategoryDao;
+package ru.javacourse.blog.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

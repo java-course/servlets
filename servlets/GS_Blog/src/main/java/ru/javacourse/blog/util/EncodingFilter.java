@@ -1,4 +1,4 @@
-package com.gemini.blog.util;
+package ru.javacourse.blog.util;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServlet;

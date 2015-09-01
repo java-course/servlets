@@ -1,4 +1,4 @@
-package com.gemini.blog.dao;
+package ru.javacourse.blog.dao;
 
 import java.util.List;
 

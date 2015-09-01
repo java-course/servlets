@@ -6,7 +6,7 @@
 
     <filter>
         <filter-name>encodingFilter</filter-name>
-        <filter-class>com.gemini.blog.util.EncodingFilter</filter-class>
+        <filter-class>ru.javacourse.blog.util.EncodingFilter</filter-class>
     </filter>
 
     <filter-mapping>
@@ -23,12 +23,12 @@
 
     <servlet>
         <servlet-name>blogServlet</servlet-name>
-        <servlet-class>com.gemini.blog.controller.BlogServlet</servlet-class>
+        <servlet-class>ru.javacourse.blog.controller.BlogServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>adminServlet</servlet-name>
-        <servlet-class>com.gemini.blog.controller.BlogAdminServlet</servlet-class>
+        <servlet-class>ru.javacourse.blog.controller.BlogAdminServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
