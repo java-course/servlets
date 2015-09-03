@@ -12,10 +12,11 @@ import javax.servlet.http.HttpServletResponse;
  * Сервлет для демонстрации работы с параметрами в web.xml
  * @author ASaburov
  */
-public class ParamServlet extends HttpServlet {
+public class InitParamServlet extends HttpServlet {
 
     String param1;
     String param2;
+
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -28,7 +29,7 @@ public class ParamServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-
+//
 //        String param1 = getServletConfig().getInitParameter("parameter1");
 //        String param2 = getServletConfig().getInitParameter("parameter2");
 

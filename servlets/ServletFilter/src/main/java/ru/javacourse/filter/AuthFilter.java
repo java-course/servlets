@@ -10,10 +10,7 @@ import java.io.IOException;
 /**
  * Created by Georgy Gobozov on 5/28/2015.
  */
-@WebFilter(urlPatterns = "/welcome")
 public class AuthFilter implements Filter{
-
-
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -28,7 +25,7 @@ public class AuthFilter implements Filter{
 
         HttpSession session = httpServletRequest.getSession(true);
 
-        if (session.getAttribute("token") != null){
+        if (session.getAttribute("token")!= null){
 
             filterChain.doFilter(request, response);
 

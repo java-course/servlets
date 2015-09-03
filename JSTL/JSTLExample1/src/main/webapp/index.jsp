@@ -12,6 +12,7 @@
     <body>
 
         <h3>JSTL EXPRESSION 2 + 2</h3>
+
         ${2+2}
 
         <h3>JSTL IF</h3>
@@ -19,6 +20,7 @@
         <c:if test="${3 > 2}">
             3 > 2
         </c:if>
+
 
         <br/>
 
@@ -31,6 +33,7 @@
         </c:forEach>
 
         <br/>
+
         <%
             String [] array = new String[]{"one", "two", "three"};
             pageContext.setAttribute("array", array);

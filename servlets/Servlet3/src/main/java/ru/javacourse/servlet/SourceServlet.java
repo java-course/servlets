@@ -7,15 +7,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class SourceServlet extends HttpServlet {
+
+
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
 
-        if(request.getParameter("redirect")!=null) {
+        String  password = request.getParameter("password");
+
+        if (request.getParameter("redirect") != null) {
             response.sendRedirect("TargetServlet");
         } else {
             getServletContext().getRequestDispatcher("/TargetServlet").forward(request, response);
         }
+
     } 
 
     @Override

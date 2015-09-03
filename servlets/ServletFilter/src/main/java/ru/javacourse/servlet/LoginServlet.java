@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet{
             out.println("<title>Servlet Filter Example</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Welcome, to secured area</h1>");
+            out.println("<h1>Welcome to secured area</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {

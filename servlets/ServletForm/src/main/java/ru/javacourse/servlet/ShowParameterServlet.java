@@ -30,6 +30,7 @@ public class ShowParameterServlet extends HttpServlet {
         String param1 = request.getParameter("parameter1");
         String param2 = request.getParameter("parameter2");
         String param3 = request.getParameter("parameter3");
+
         String param4 = request.getParameter("text");
         String param5 = request.getParameter("select");
         String param6 = request.getParameter("check");
@@ -38,6 +39,7 @@ public class ShowParameterServlet extends HttpServlet {
         for(Enumeration en = request.getParameterNames(); en.hasMoreElements();) {
             String name = (String)en.nextElement();
             String value = request.getParameter(name);
+
             System.out.println("Name:" + name);
             System.out.println("Value:" + value);
         }

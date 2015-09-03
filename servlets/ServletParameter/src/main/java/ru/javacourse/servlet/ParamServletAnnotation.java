@@ -16,7 +16,8 @@ import java.io.PrintWriter;
 @WebServlet(urlPatterns = "/ParamServletAnnotation", initParams = {
 
         @WebInitParam(name = "param1", value = "value1"),
-        @WebInitParam(name = "param2", value = "value2")}
+        @WebInitParam(name = "param2", value = "value2")
+    }
 
 )
 public class ParamServletAnnotation extends HttpServlet{

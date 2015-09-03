@@ -23,15 +23,12 @@ public class JSPAttributesServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-            
-//        request.setAttribute("name", "Georgy");
-//        request.setAttribute("surname", "Gobozov");
 
         String name = request.getParameter("name");
         String surname= request.getParameter("surname");
 
-        request.setAttribute("name", name);
-        request.setAttribute("surname", surname);
+        request.setAttribute("name", name != null ? name : "");
+        request.setAttribute("surname", surname != null ? surname : "");
 
         RequestDispatcher dispatcher =  getServletContext().getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);

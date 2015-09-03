@@ -1,12 +1,23 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
+<%!
+
+
+    public void p(String s){
+        System.out.println(s);
+    }
+
+%>
+
 
 <%
-String name = request.getParameter("name");
-String surname = request.getParameter("surname");
+
+    String name = request.getParameter("name");
+    p(name);
+    String surname = request.getParameter("surname");
+    p(surname);
 %>
 
 <html>

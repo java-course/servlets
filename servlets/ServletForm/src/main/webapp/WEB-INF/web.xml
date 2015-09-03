@@ -5,15 +5,24 @@
         <servlet-name>ShowParameterServlet</servlet-name>
         <servlet-class>ru.javacourse.servlet.ShowParameterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registerServlet</servlet-name>
+        <servlet-class>ru.javacourse.servlet.RegisterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowParameterServlet</servlet-name>
         <url-pattern>/ShowParameter</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registerServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
 
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
-    
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         </welcome-file-list>

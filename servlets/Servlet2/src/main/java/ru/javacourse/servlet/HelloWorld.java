@@ -9,15 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(urlPatterns = "/HelloWorld")
+@WebServlet(urlPatterns = {"/HelloWorld", "/url2"}, name = "HelloWorldServlet")
 public class HelloWorld extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // ОЧЕНЬ ВАЖНЫЙ МОМЕНТ - надо заранее установить тип возвращаемой информации
-        // чтобы броузер мог правильно его показывать. Здесь у нас будет возвращаться HTML
+
         response.setContentType("text/html;charset=UTF-8");
-        // Теперь получаем поток символов для записи
+
         PrintWriter out = response.getWriter();
         try {
             // И пишем в него обычный HTML

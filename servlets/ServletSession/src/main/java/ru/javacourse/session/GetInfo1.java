@@ -13,12 +13,15 @@ public class GetInfo1 extends HttpServlet {
     public static final String PARAMETER_SESSION = "paremeterSession";
     public static final String PARAMETER_CONTEXT = "paremeterContext";
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
         // Получаем параметр из запроса
         String param = request.getParameter("parameter");
         // Запоминаем параметр в сессии
+
         HttpSession session = request.getSession(true);
         session.setAttribute(PARAMETER_SESSION, param);
 
@@ -28,21 +31,15 @@ public class GetInfo1 extends HttpServlet {
         try {
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GetInfo1</title>");  
+            out.println("<title>Servlet GetInfo1</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet GetInfo1</h1>");
             out.println("<a href='GetInfo2'>Show parameter</a>");
             out.println("</body>");
             out.println("</html>");
-        } finally { 
+        } finally {
             out.close();
         }
-    } 
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
     } 
 }
