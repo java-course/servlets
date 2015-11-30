@@ -82,8 +82,10 @@ public class BlogServlet extends HttpServlet {
         String body = request.getParameter("body");
         String category = request.getParameter("category");
 
+        Category cat =  categoryDao.getById(Integer.parseInt(category));
+
         if (isValidPost(title, summary, body)){
-            Category cat =  categoryDao.getById(Integer.parseInt(category));
+
 
             Post post = new Post(title, summary, body, cat);
             if (id != null) {
@@ -100,6 +102,7 @@ public class BlogServlet extends HttpServlet {
             if (!isNullOrEmpty(title)) post.setTitle(title);
             if (!isNullOrEmpty(summary)) post.setSummary(summary);
             if (!isNullOrEmpty(body)) post.setBody(body);
+            post.setCategory(cat);
 
             request.setAttribute("error", "Please fill required fields!");
             request.setAttribute("post", post);

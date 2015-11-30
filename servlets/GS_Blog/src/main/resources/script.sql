@@ -9,15 +9,25 @@ CREATE TABLE categories (
 ) ;
 
 CREATE TABLE posts (
-	id INT(11) NOT NULL AUTO_INCREMENT, 
-	title VARCHAR(255) NOT NULL, 
-	summary TEXT NOT NULL, 
-	body TEXT NOT NULL, 
-	categoryId INT(11) NOT NULL , 
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	title VARCHAR(255) NOT NULL,
+	summary TEXT NOT NULL,
+	body TEXT NOT NULL,
+	categoryId INT(11) NOT NULL ,
 	PRIMARY KEY (id)
 ) ;
 	
 ALTER TABLE posts ADD CONSTRAINT CONSTR_POST_CATEGORY FOREIGN KEY (categoryId) REFERENCES categories (id);
+
+
+CREATE TABLE comments (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  text TEXT NOT NULL,
+  postId INT(11) NOT NULL ,
+  PRIMARY KEY (id)
+) ;
+
+ALTER TABLE comments ADD CONSTRAINT CONSTR_COMMENT_POST FOREIGN KEY (postId) REFERENCES posts (id);
 
 
 INSERT INTO `categories` (`id`, `name`) VALUES 

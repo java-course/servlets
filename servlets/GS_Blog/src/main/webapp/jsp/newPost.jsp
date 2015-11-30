@@ -52,7 +52,7 @@
                 <select name="category">
                     <c:forEach items="${categories}" var="cat">
                         <option
-                                <c:if test="${isEdit && cat.id == post.category.id}">selected="selected"</c:if>
+                                <c:if test="${cat.id == post.category.id}">selected="selected"</c:if>
                                 value="${cat.id}">${cat.name}</option>
                     </c:forEach>
                 </select>

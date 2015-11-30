@@ -29,10 +29,8 @@ public class BlogAdminServlet extends HttpServlet {
         String mode = request.getParameter("mode");
 
         if ("posts".equals(mode)) {
-            List<Post> posts = postDao.getAll();
-            request.setAttribute("posts", posts);
-            List<Category> categories = categoryDao.getAll();
-            request.setAttribute("categories", categories);
+            request.setAttribute("posts",  postDao.getAll());
+            request.setAttribute("categories", categoryDao.getAll());
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/admin/posts.jsp");
             rd.forward(request, response);
             return;

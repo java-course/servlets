@@ -63,7 +63,13 @@ public class PostDao extends AbstractDaoImpl<Post> {
             pstmt.setInt(1, categoryId);
             try (ResultSet resultSet = pstmt.executeQuery();){
                 while (resultSet.next()){
-                    posts.add(new Post(resultSet, category));
+                    Post post = new Post();
+                    post.setId(resultSet.getInt("id"));
+                    post.setTitle(resultSet.getString("title"));
+                    post.setSummary(resultSet.getString("summary"));
+                    post.setBody(resultSet.getString("body"));
+                    post.setCategory(category);
+                    posts.add(post);
                 }
             }
         } catch (SQLException e) {

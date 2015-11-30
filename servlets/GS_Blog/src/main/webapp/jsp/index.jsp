@@ -22,7 +22,7 @@
                     <h2>Posts</h2>
 
                     <c:forEach items="${posts}" var="post">
-                        <h1>${post.title}</h1>
+                        <h3>${post.title}</h3>
                         <p>${post.summary}</p>
                         <a href="/blog?post=${post.id}">Read more...</a>
                         <hr/>
